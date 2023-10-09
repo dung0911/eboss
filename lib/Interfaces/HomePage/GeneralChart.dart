@@ -1,27 +1,12 @@
 import 'package:eboss/Interfaces/HomePage/Dashboard.dart';
 import 'package:eboss/Widget/General/CustomButton.dart';
+import 'package:eboss/Widget/General/license.dart';
 import 'package:flutter/material.dart';
 import 'package:eboss/Widget/ChartWidget/ChartData.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class GeneralChart extends StatelessWidget {
-  final List<ChartData> chartData = [
-    ChartData('2020', 'Doanh thu', 100),
-    ChartData('2021', 'Doanh thu', 50),
-    ChartData('2022', 'Doanh thu', 20),
-    ChartData('2023', 'Doanh thu', 250),
-    ChartData('2024', 'Doanh thu', 20),
-    ChartData('2020', 'Chi Phí', 20),
-    ChartData('2021', 'Chi Phí', 220),
-    ChartData('2022', 'Chi Phí', 200),
-    ChartData('2023', 'Chi Phí', 20),
-    ChartData('2024', 'Chi Phí', 20),
-    ChartData('2020', 'Lợi nhuận', 260),
-    ChartData('2021', 'Lợi nhuận', 270),
-    ChartData('2022', 'Lợi nhuận', 290),
-    ChartData('2023', 'Lợi nhuận', 200),
-    ChartData('2024', 'Lợi nhuận', 300),
-  ];
+
 
   @override
   Widget build(BuildContext context) {
@@ -46,8 +31,7 @@ class GeneralChart extends StatelessWidget {
           ),
           SizedBox(height: 20),
           Container(
-            height: MediaQuery.of(context).size.height *
-                0.5, // Đặt chiều cao cho biểu đồ
+            height: MediaQuery.of(context).size.height * 0.5, // chiều cao biểu đổ
             child: SfCartesianChart(
               primaryXAxis: CategoryAxis(),
               primaryYAxis: NumericAxis(),
@@ -90,7 +74,7 @@ class GeneralChart extends StatelessWidget {
                 Expanded(
                   child: Divider(
                     color: Color.fromRGBO(29, 65, 127, 1),
-                    height: 32, // Tùy chỉnh độ cao của Divider nếu cần
+                    height: 32,
                   ),
                 ),
                 Padding(
@@ -164,6 +148,7 @@ class GeneralChart extends StatelessWidget {
               ],
             ),
           ),
+          License(textColor: Colors.black),
         ],
       ),
     ));

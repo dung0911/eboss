@@ -1,5 +1,6 @@
 import 'package:eboss/Interfaces/Welcome/Header.dart';
 import 'package:eboss/Interfaces/Welcome/InputField.dart';
+import 'package:eboss/Widget/General/license.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -37,9 +38,9 @@ class LoginPage extends StatelessWidget {
                   double aspectRatio;
 
                   if (orientation == Orientation.portrait) {
-                    aspectRatio = (screenWidth / 1) / (screenHeight / 4);
+                    aspectRatio = (screenWidth) / (screenHeight / 4);
                   } else {
-                    aspectRatio = (screenWidth / 4) / (screenHeight / 6);
+                    aspectRatio = (screenWidth) / (screenHeight / 6);
                   }
 
                   return AspectRatio(
@@ -58,38 +59,7 @@ class LoginPage extends StatelessWidget {
             right: 20,
             child: InputField(),
           ),
-
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  'assets/images/eboss_logo_60.png',
-                  width: 100,
-                  height: 30,
-                ),
-                SizedBox(height: 3),
-                Text(
-                  'Bản quyền của Công ty CP Công Nghệ FISOFT.',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 10,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(
-                  height: 3,
-                ),
-                Text(
-                  'Giữ toàn quyền',
-                  style: TextStyle(color: Colors.white, fontSize: 10),
-                ),
-                SizedBox(height: 10),
-              ],
-            ),
-          ),
+          License(textColor: Colors.white),
         ],
       ),
     );

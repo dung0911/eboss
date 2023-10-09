@@ -1,6 +1,8 @@
 import 'package:eboss/Interfaces/HomePage/ChartDetail.dart';
 import 'package:eboss/Interfaces/HomePage/GeneralChart.dart';
+import 'package:eboss/Widget/ChartWidget/ChartData.dart';
 import 'package:eboss/Widget/General/CustomButton.dart';
+import 'package:eboss/Widget/General/license.dart';
 import 'package:flutter/material.dart';
 
 class Dashboard extends StatefulWidget {
@@ -58,7 +60,7 @@ class _Dashboard extends State<Dashboard> {
             // TabBar
             Container(
               color: Colors.transparent,
-              width: MediaQuery.of(context).size.width / 1.5,
+              // width: MediaQuery.of(context).size.width / 1.5,
               child: TabBar(
                 labelColor: Color.fromRGBO(29, 65, 127, 1),
                 unselectedLabelColor: Colors.grey,
@@ -71,10 +73,6 @@ class _Dashboard extends State<Dashboard> {
                 ],
               ),
             ),
-            SizedBox(
-              height: 0,
-            ),
-
             Expanded(
               child: TabBarView(
                 children: [GeneralChart(), ChartDetail()],
