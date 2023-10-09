@@ -1,5 +1,5 @@
 import 'package:eboss/Interfaces/HomePage/Dashboard.dart';
-import 'package:eboss/Widget/WelcomeWidget/CustomButton.dart';
+import 'package:eboss/Widget/General/CustomButton.dart';
 import 'package:flutter/material.dart';
 
 class Button extends StatelessWidget {

@@ -1,4 +1,5 @@
 import 'package:eboss/Interfaces/Welcome/Button.dart';
+import 'package:eboss/Widget/WelcomeWidget/InputText.dart';
 import 'package:flutter/material.dart';
 
 class InputField extends StatefulWidget {
@@ -17,85 +18,54 @@ class _InputFieldState extends State<InputField> {
 
   @override
   Widget build(BuildContext context) {
+    final orientation = MediaQuery.of(context).orientation;
     bool _rememberPassword = true;
-    double width = MediaQuery.of(context).size.width;
-
+    double height = (orientation == Orientation.portrait)
+        ? MediaQuery.of(context).size.height / 2.5
+        : MediaQuery.of(context).size.height / 1.75;
+    double margin = (orientation == Orientation.portrait)
+        ? 100
+        : 0;
     return Container(
-      margin: EdgeInsets.only(top: 100.0),
-      width: width * 10 / 12,
-      height: 300,
-      padding: EdgeInsets.all(10),
+      margin: EdgeInsets.only(top: margin),
+      height: height,
+      padding: EdgeInsets.only(
+          left: 20,
+          right: 20
+      ),
       decoration: BoxDecoration(
         color: Colors.white,
         border: Border.all(
             color: Color.fromRGBO(29, 65, 127, 1),
             width: 2.0 // Độ dày của viền
-            ),
+        ),
         borderRadius: BorderRadius.all(Radius.circular(20)),
       ),
-      // Màu nền cho Container và tất cả children của nó
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Container(
-            width: width * 8 / 11,
-            child: TextField(
-              decoration: InputDecoration(
-                prefixIcon: Padding(
-                  padding: EdgeInsets.only(left: 20, right: 5),
-                  child: Icon(Icons.person, color: Colors.grey),
-                ) ,
-                hintText: "Username",
-                hintStyle: TextStyle(color: Colors.grey),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(50),
-                  borderSide: BorderSide(color: Colors.black),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(50),
-                  borderSide: BorderSide(color: Colors.black, width: 2.0),
-                ),
-              ),
-            ),
+          InputText(
+            hintText: "Username",
+            prefixIcon: Icons.person,
+            onChanged: (text) {
+            },
           ),
           SizedBox(
-            height: 20,
+            height: 5,
           ),
-          Container(
-            width: width * 8 / 11,
-            child: TextField(
-              obscureText: _obscureText,
-              decoration: InputDecoration(
-                prefixIcon: Padding(
-                  padding: EdgeInsets.only(left: 20, right: 5),
-                  child: Icon(Icons.lock, color: Colors.grey),
-                ),
-                hintText: "Password",
-                hintStyle: TextStyle(color: Colors.grey),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(50),
-                  borderSide: BorderSide(color: Colors.black),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(50),
-                  borderSide: BorderSide(color: Colors.black, width: 2.0),
-                ),
-                suffixIcon: Padding(
-                  padding: EdgeInsets.only(left: 5, right: 10),
-                  child: IconButton(
-                    icon: Icon(
-                      _obscureText ? Icons.visibility : Icons.visibility_off,
-                      color: Colors.grey,
-                    ),
-                    onPressed: _togglePasswordVisibility,
-                  ),
-                )
-
+          InputText(
+            hintText: "Password",
+            prefixIcon: Icons.lock,
+            obscureText: _obscureText,
+            onChanged: (text) {
+            },
+            suffixIcon: IconButton(
+              icon: Icon(
+                _obscureText ? Icons.visibility : Icons.visibility_off,
+                color: Colors.grey,
               ),
+              onPressed: _togglePasswordVisibility,
             ),
-          ),
-          SizedBox(
-            height: 10,
           ),
           CheckboxListTile(
             title: Text("Ghi nhớ"),
@@ -107,7 +77,6 @@ class _InputFieldState extends State<InputField> {
             },
             controlAffinity: ListTileControlAffinity.leading,
           ),
-          SizedBox(height: 10),
           Button(),
         ],
       ),

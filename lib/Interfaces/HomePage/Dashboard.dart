@@ -1,6 +1,6 @@
 import 'package:eboss/Interfaces/HomePage/ChartDetail.dart';
 import 'package:eboss/Interfaces/HomePage/GeneralChart.dart';
-import 'package:eboss/Widget/WelcomeWidget/CustomButton.dart';
+import 'package:eboss/Widget/General/CustomButton.dart';
 import 'package:flutter/material.dart';
 
 class Dashboard extends StatefulWidget {
@@ -25,7 +25,6 @@ class _Dashboard extends State<Dashboard> {
                   bottomRight: Radius.circular(20),
                 ),
                 color: Color.fromRGBO(29, 65, 127, 1),
-
               ),
               child: AppBar(
                 backgroundColor: Colors.transparent,
@@ -73,16 +72,12 @@ class _Dashboard extends State<Dashboard> {
               ),
             ),
             SizedBox(
-              height: 20,
+              height: 0,
             ),
 
             Expanded(
               child: TabBarView(
-                children: [
-                  GeneralChart(),
-                  ChartDetail()
-                  // Nội dung của Tab thứ 2
-                ],
+                children: [GeneralChart(), ChartDetail()],
               ),
             ),
           ],

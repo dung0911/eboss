@@ -1,5 +1,5 @@
 import 'package:eboss/Interfaces/HomePage/Dashboard.dart';
-import 'package:eboss/Widget/WelcomeWidget/CustomButton.dart';
+import 'package:eboss/Widget/General/CustomButton.dart';
 import 'package:flutter/material.dart';
 import 'package:eboss/Widget/ChartWidget/ChartData.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
@@ -25,7 +25,8 @@ class GeneralChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return SingleChildScrollView(
+        child: Padding(
       padding: const EdgeInsets.all(20.0),
       child: Column(
         children: [
@@ -44,7 +45,9 @@ class GeneralChart extends StatelessWidget {
             ],
           ),
           SizedBox(height: 20),
-          Expanded(
+          Container(
+            height: MediaQuery.of(context).size.height *
+                0.5, // Đặt chiều cao cho biểu đồ
             child: SfCartesianChart(
               primaryXAxis: CategoryAxis(),
               primaryYAxis: NumericAxis(),
@@ -127,7 +130,9 @@ class GeneralChart extends StatelessWidget {
                   },
                   backgroundColor: Color.fromRGBO(29, 65, 127, 1),
                 ),
-                SizedBox(height: 20,),
+                SizedBox(
+                  height: 20,
+                ),
                 CustomButton(
                   label: "Duyệt ĐNTU - TT",
                   onPressed: () {
@@ -139,7 +144,9 @@ class GeneralChart extends StatelessWidget {
                   },
                   backgroundColor: Color.fromRGBO(29, 65, 127, 1),
                 ),
-                SizedBox(height: 20,),
+                SizedBox(
+                  height: 20,
+                ),
                 CustomButton(
                   label: "Duyệt quyết toán tạm ứng",
                   onPressed: () {
@@ -151,13 +158,15 @@ class GeneralChart extends StatelessWidget {
                   },
                   backgroundColor: Color.fromRGBO(29, 65, 127, 1),
                 ),
-                SizedBox(height: 20,),
+                SizedBox(
+                  height: 20,
+                ),
               ],
             ),
           ),
         ],
       ),
-    );
+    ));
   }
 }
 
